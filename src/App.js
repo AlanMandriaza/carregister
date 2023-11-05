@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
@@ -18,13 +17,12 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={
-            <>
-              <LandingPage registros={registros} />
-              <RegisterForm onSubmit={handleRegistroSubmit} />
-              <RegisterList registros={registros} />
-            </>
-          }/>
+          <Route
+            path="/"
+            element={
+              <LandingPage />
+            }
+          />
           <Route path="/vehicle/:id" element={<VehicleDetailPage registros={registros} />} />
         </Routes>
       </div>

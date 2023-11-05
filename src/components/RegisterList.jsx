@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function RegisterList({ registros }) {
   return (
     <div>
-      <h2>Lista de Vehículos</h2>
+      <h2>Autos Registrados</h2>
       <ul>
-        {registros.map((registro) => (
-          <li key={registro.servicioNumber}>
-            <Link to={`/vehicle/${registro.servicioNumber}`}>
-              {`${registro.marca} ${registro.modelo} - ${registro.patente}`}
-            </Link>
+        {registros.map((registro, index) => (
+          <li key={index}>
+           
+            {`${registro.marca} ${registro.modelo} - ${registro.patente}`}
           </li>
         ))}
       </ul>
