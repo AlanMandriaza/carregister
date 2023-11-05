@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import RegisterForm from './components/RegisterForm.jsx';
+import RegisterList from './components/RegisterList.jsx';
 
 function App() {
+  const [registros, setRegistros] = useState([]);
+
+  const handleRegistroSubmit = (registro) => {
+    setRegistros([...registros, registro]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Registro de Clientes y Autos</h1>
+      <RegisterForm onSubmit={handleRegistroSubmit} />
+      <RegisterList registros={registros} />
     </div>
   );
 }

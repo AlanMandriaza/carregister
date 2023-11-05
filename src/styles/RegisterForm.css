@@ -1,0 +1,48 @@
+.register-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+  }
+  
+  .register-form {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    margin-right: 20px; /* Espacio entre el formulario y la imagen */
+  }
+  
+  .register-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .register-form input,
+  .register-form textarea {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .register-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .image-preview {
+    max-width: 600px;
+    flex-shrink: 0; /* Evita que la imagen se reduzca si el contenedor es pequeño */
+  }
+  
+  .auto-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
