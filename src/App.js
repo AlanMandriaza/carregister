@@ -1,6 +1,11 @@
+// App.jsx
 import React, { useState } from 'react';
-import RegisterForm from './components/RegisterForm.jsx';
-import RegisterList from './components/RegisterList.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import RegisterForm from './components/RegisterForm';
+import RegisterList from './components/RegisterList';
+import VehicleDetailPage from './components/VehicleDetailPage';
+import LandingPage from './components/LandingPage';
+import './App.css';
 
 function App() {
   const [registros, setRegistros] = useState([]);
@@ -10,11 +15,20 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Registro de Clientes y Autos</h1>
-      <RegisterForm onSubmit={handleRegistroSubmit} />
-      <RegisterList registros={registros} />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <LandingPage registros={registros} />
+              <RegisterForm onSubmit={handleRegistroSubmit} />
+              <RegisterList registros={registros} />
+            </>
+          }/>
+          <Route path="/vehicle/:id" element={<VehicleDetailPage registros={registros} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
