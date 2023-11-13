@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
-import RegisterList from './components/RegisterList';
-import VehicleDetailPage from './components/VehicleDetailPage';
-import LandingPage from './components/LandingPage';
-import './App.css';
 
 function App() {
-  const [registros, setRegistros] = useState([]);
+  const [isFormVisible, setFormVisible] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const handleRegistroSubmit = (registro) => {
-    setRegistros([...registros, registro]);
+  const handleSubmit = (newRegistro) => {
+    console.log('Nuevo Registro:', newRegistro);
+  };
+
+  const handleOpenForm = () => {
+    setFormVisible(true);
+    setModalIsOpen(true);
+  };
+
+  const handleCloseForm = () => {
+    setFormVisible(false);
+    setModalIsOpen(false);
   };
 
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <LandingPage />
-            }
-          />
-          <Route path="/vehicle/:id" element={<VehicleDetailPage registros={registros} />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <h1>Mi Aplicación</h1>
+      {!isFormVisible && (
+        <button onClick={handleOpenForm}>Abrir Formulario</button>
+      )}
+      {isFormVisible && (
+        <RegisterForm
+          isOpen={modalIsOpen}
+          onRequestClose={handleCloseForm}
+          onSubmit={handleSubmit}
+        />
+      )}
+    </div>
   );
 }
 
