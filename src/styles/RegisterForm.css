@@ -26,3 +26,12 @@ h2 {
   height: 42%;
 
 }
+.form {
+  width: 30%;
+}
+
+.selected {
+  background-color: #3498db; 
+  color: #ffffff; 
+  font-weight: bold; 
+}
