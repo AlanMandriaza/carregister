@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AlanMandriaza/carregister/static/css/main.c8341f42.css",
+    "main.js": "/AlanMandriaza/carregister/static/js/main.c0123a4c.js",
+    "static/js/787.285a9697.chunk.js": "/AlanMandriaza/carregister/static/js/787.285a9697.chunk.js",
+    "index.html": "/AlanMandriaza/carregister/index.html",
+    "main.c8341f42.css.map": "/AlanMandriaza/carregister/static/css/main.c8341f42.css.map",
+    "main.c0123a4c.js.map": "/AlanMandriaza/carregister/static/js/main.c0123a4c.js.map",
+    "787.285a9697.chunk.js.map": "/AlanMandriaza/carregister/static/js/787.285a9697.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8341f42.css",
+    "static/js/main.c0123a4c.js"
+  ]
+}
