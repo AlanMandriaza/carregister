@@ -1,37 +1,19 @@
-.form-row {
-  align-items: center;
-    flex-direction: column;
-    display: flex;
-    align-content: center;
-    justify-content: space-evenly;
+.vehicle-details {
+  width: 45%;
+  display: table; /* Esto hará que se comporte como una tabla */
 }
 
-.form-item {
-  margin-bottom: 10px;
+.detail-row {
+  display: table-row;
 }
 
-.form-buttons {
-  margin-top: auto;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-h2 {
-  text-align: center;
-}
-.ReactModal__Content {
-
-  width: 32%;
-  height: 42%;
-
-}
-.form {
-  width: 30%;
+.detail-row span {
+  display: table-cell;
+  padding: 5px; /* Agrega espacio dentro de cada celda */
+  border-bottom: 1px solid #ddd; /* Línea separadora para cada detalle */
 }
 
-.selected {
-  background-color: #3498db; 
-  color: #ffffff; 
-  font-weight: bold; 
+.detail-row span:first-child {
+  font-weight: bold; /* Hace que la clave sea más destacada */
+  width: 50%; /* Ajusta según sea necesario */
 }

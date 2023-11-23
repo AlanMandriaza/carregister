@@ -15,12 +15,11 @@ function App() {
 
     return (
         <Router>
-            <Navbar />
+            <Navbar registros={registros} />
             <Routes>
                 <Route path="/" element={<Home registros={registros} />} />
                 <Route path="/register" element={<NewRegisterForm onSubmit={handleSubmit} />} />
                 <Route path="/vehicles" element={<RegisterList registros={registros} />} />
-                
                 <Route path="/vehicle/:servicioNumber" element={<VehicleDetailPage registros={registros} />} />
             </Routes>
         </Router>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/RegisterForm.css';  
+import '../styles/RegisterForm.css';
 
 function RegisterList({ registros }) {
   const [selectedVehicle, setSelectedVehicle] = useState(null);
@@ -9,8 +9,8 @@ function RegisterList({ registros }) {
   };
 
   return (
-    <div>
-      <ul>
+    <div className="register-container">
+      <ul className="vehicle-list">
         {registros.map((vehiculo) => (
           <li
             key={vehiculo.servicioNumber}
@@ -22,11 +22,44 @@ function RegisterList({ registros }) {
         ))}
       </ul>
       {selectedVehicle && (
-        <div>
-          <h2>Vehicle Details</h2>
-          <p>Marca: {selectedVehicle.marca}</p>
-          <p>Modelo: {selectedVehicle.modelo}</p>
-          {/* Include other vehicle details here */}
+        <div className="vehicle-details">
+          <h2>Detalles de Vehiculo</h2>
+          <div className="detail-row">
+            <span>Numero de servicio:</span>
+            <span>{selectedVehicle.servicioNumber}</span>
+          </div>
+          <div className="detail-row">
+            <span>Marca:</span>
+            <span>{selectedVehicle.marca}</span>
+          </div>
+          <div className="detail-row">
+            <span>Modelo:</span>
+            <span>{selectedVehicle.modelo}</span>
+          </div>
+          <div className="detail-row">
+            <span>Cliente:</span>
+            <span>{selectedVehicle.cliente}</span>
+          </div>
+          <div className="detail-row">
+            <span>Patente:</span>
+            <span>{selectedVehicle.patente}</span>
+          </div>
+          <div className="detail-row">
+            <span>Cilindrada:</span>
+            <span>{selectedVehicle.cilindrada}</span>
+          </div>
+          <div className="detail-row">
+            <span>Ultimo Cambio de Aceite:</span>
+            <span>{selectedVehicle.ultimoCambioAceite}</span>
+          </div>
+          <div className="detail-row">
+            <span>Kilometraje:</span>
+            <span>{selectedVehicle.kilometraje}</span>
+          </div>
+          <div className="detail-row">
+            <span>Color:</span>
+            <span>{selectedVehicle.color}</span>
+          </div>
         </div>
       )}
     </div>
