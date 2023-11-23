@@ -53,9 +53,9 @@ function NewRegisterForm({ onSubmit }) {
 
   return (
     <div>
-      <h2>Registro de Vehículo</h2>
+      
       <form style={{ maxWidth: '400px', margin: '20px auto' }} onSubmit={handleRegister}>
-        {/* Form fields for vehicle registration */}
+      <h2>Registro de Vehículo</h2>
         <div className="mb-3">
           <label htmlFor="marca" className="form-label">Marca:</label>
           <input
