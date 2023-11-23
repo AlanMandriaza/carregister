@@ -62,6 +62,11 @@ function RegisterList({ registros }) {
           </div>
         </div>
       )}
+      {registros.length === 0 && (
+        <div>
+          <h3>Sin registros</h3>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types'; // Asegúrate de haber instalado 'prop-types'
+import PropTypes from 'prop-types';
 
 function Navbar({ registros }) {
-  // Asegúrate de que registros no sea undefined
   const cantidadRegistros = registros ? registros.length : 0;
 
   return (
@@ -23,7 +22,7 @@ function Navbar({ registros }) {
   );
 }
 
-// PropType para la validación de 'registros'
+
 Navbar.propTypes = {
   registros: PropTypes.array
 };
