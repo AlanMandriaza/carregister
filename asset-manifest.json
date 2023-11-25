@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/carregister/static/css/main.a7038090.css",
-    "main.js": "/carregister/static/js/main.cc2fb835.js",
+    "main.js": "/carregister/static/js/main.0715bdc1.js",
     "static/js/787.285a9697.chunk.js": "/carregister/static/js/787.285a9697.chunk.js",
     "index.html": "/carregister/index.html",
     "main.a7038090.css.map": "/carregister/static/css/main.a7038090.css.map",
-    "main.cc2fb835.js.map": "/carregister/static/js/main.cc2fb835.js.map",
+    "main.0715bdc1.js.map": "/carregister/static/js/main.0715bdc1.js.map",
     "787.285a9697.chunk.js.map": "/carregister/static/js/787.285a9697.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a7038090.css",
-    "static/js/main.cc2fb835.js"
+    "static/js/main.0715bdc1.js"
   ]
 }
