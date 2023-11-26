@@ -49,7 +49,7 @@ function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
   const cantidadRegistros = registros ? registros.length : 0;
 
   return (
-    <nav className="navbar navbar-expand-sm bg-body-tertiary">
+    <nav className="navbar navbar-expand-sm bg-light">
       <div className="container-fluid">
       <Link
           to="/carregister"

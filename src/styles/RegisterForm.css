@@ -18,10 +18,6 @@
   width: 50%; 
 }
 
-
-.selected{
-  background-color: lightblue;
-}
 .custom-popover {
   position: absolute;
   top: 100%;

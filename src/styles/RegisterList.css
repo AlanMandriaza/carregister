@@ -1,0 +1,53 @@
+.register-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.vehicle-list {
+  flex: 0 0 250px; /* Ancho del sidebar */
+  background-color: #f0f0f0; /* Color de fondo del sidebar */
+  padding: 12px 0px 20px 20px;
+  list-style: none;
+  margin: 0;
+}
+
+.vehicle-list li {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid #ccc; /* Línea divisoria */
+  }
+  
+  .vehicle-list li:last-child {
+    border-bottom: none; /* Eliminar la línea del último elemento */
+  }
+  
+
+.vehicle-list li.selected {
+  background-color: #d1d1d1; /* Color más oscuro para el seleccionado */
+}
+
+.vehicle-details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.detail-row {
+    line-height: 2;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+    border-bottom: 0;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+.text-center{
+    border-bottom: 1px outset;
+}
