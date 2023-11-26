@@ -17,3 +17,8 @@
   font-weight: bold; /* Hace que la clave sea más destacada */
   width: 50%; /* Ajusta según sea necesario */
 }
+
+
+.selected{
+  background-color: lightblue;
+}

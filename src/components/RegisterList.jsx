@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/RegisterForm.css';
 
 function RegisterList({ registros }) {
   const [selectedVehicle, setSelectedVehicle] = useState(null);
+
+  // Cargar el vehículo seleccionado del almacenamiento local cuando el componente se monta
+  useEffect(() => {
+    const storedVehicle = localStorage.getItem('selectedVehicle');
+    if (storedVehicle) {
+      setSelectedVehicle(JSON.parse(storedVehicle));
+      // Opcional: limpiar el almacenamiento local
+      localStorage.removeItem('selectedVehicle');
+    }
+  }, []);
 
   const handleVehicleClick = (vehiculo) => {
     setSelectedVehicle(vehiculo);
@@ -15,7 +25,7 @@ function RegisterList({ registros }) {
           <li
             key={vehiculo.servicioNumber}
             onClick={() => handleVehicleClick(vehiculo)}
-            className={selectedVehicle === vehiculo ? 'selected' : ''}
+            className={selectedVehicle && vehiculo.servicioNumber === selectedVehicle.servicioNumber ? 'selected' : ''}
           >
             {`${vehiculo.marca} ${vehiculo.modelo}`}
           </li>

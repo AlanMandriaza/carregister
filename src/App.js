@@ -19,6 +19,7 @@ function App() {
                 <Route path="/" element={<Home registros={registros} />} />
                 <Route path="/register" element={<NewRegisterForm onSubmit={handleSubmit} />} />
                 <Route path="/vehicles" element={<RegisterList registros={registros} />} />
+                {/* No hay ruta para "/carregister", asegúrate de que no estás intentando navegar a esta ruta en tu aplicación */}
             </Routes>
         </Router>
     );
