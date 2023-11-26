@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/RegisterForm.css';
+
 function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredRegistros, setFilteredRegistros] = useState([]);
@@ -47,10 +48,15 @@ function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
 
   const cantidadRegistros = registros ? registros.length : 0;
 
+  // Función para redirigir al inicio de la aplicación
+  const navigateToHome = () => {
+    navigate('/');
+  };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="#" onClick={navigateToHome}>
           Inicio
         </a>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -74,7 +80,6 @@ function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
                   value={searchTerm}
                   onChange={handleSearchInputChange}
                 />
-                
                 {showPopover && (
                   <div className="custom-popover">
                     {filteredRegistros.length > 0 ? (
@@ -99,7 +104,6 @@ function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
                     )}
                   </div>
                 )}
-               
               </div>
             </li>
           </ul>
