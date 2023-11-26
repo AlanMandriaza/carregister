@@ -1,6 +1,6 @@
 .vehicle-details {
   width: 45%;
-  display: table; /* Esto hará que se comporte como una tabla */
+  display: table; 
 }
 
 .detail-row {
@@ -9,13 +9,13 @@
 
 .detail-row span {
   display: table-cell;
-  padding: 5px; /* Agrega espacio dentro de cada celda */
-  border-bottom: 1px solid #ddd; /* Línea separadora para cada detalle */
+  padding: 5px; 
+  border-bottom: 1px solid #ddd; 
 }
 
 .detail-row span:first-child {
-  font-weight: bold; /* Hace que la clave sea más destacada */
-  width: 50%; /* Ajusta según sea necesario */
+  font-weight: bold; 
+  width: 50%; 
 }
 
 

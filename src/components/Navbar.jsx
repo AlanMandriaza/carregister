@@ -48,15 +48,15 @@ function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
 
   const cantidadRegistros = registros ? registros.length : 0;
 
-  // Función para redirigir al inicio de la aplicación
+  // funcion para redirigir al inicio de la aplicacion
   const navigateToHome = () => {
-    navigate('/');
+    navigate('/carregister');
   };
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#" onClick={navigateToHome}>
+        <a className="navbar-brand" href="carregister" onClick={navigateToHome}>
           Inicio
         </a>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -90,7 +90,7 @@ function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
                             onClick={() => handleVehicleClick(vehiculo)}
                             className={
                               selectedVehicle &&
-                              vehiculo.servicioNumber === selectedVehicle.servicioNumber
+                                vehiculo.servicioNumber === selectedVehicle.servicioNumber
                                 ? 'selected'
                                 : ''
                             }

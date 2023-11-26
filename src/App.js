@@ -23,7 +23,7 @@ function App() {
       <Navbar registros={registros} selectedVehicle={selectedVehicle} setSelectedVehicle={setSelectedVehicle} />
 
       <Routes>
-        <Route path="/" element={<Home registros={registros} />} />
+        <Route path="/carregister" element={<Home registros={registros} />} />
         <Route path="/register" element={<NewRegisterForm onSubmit={handleSubmit} />} />
         <Route
           path="/vehicles"

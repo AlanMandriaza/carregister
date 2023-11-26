@@ -4,7 +4,7 @@ import '../styles/RegisterForm.css';
 function RegisterList({ registros, selectedVehicle }) {
   const [currentSelectedVehicle, setCurrentSelectedVehicle] = useState(selectedVehicle);
 
-  // cargar el vehículo seleccionado del almacenamiento local cuando el componente se monta
+  // cargar el vehiculo seleccionado del almacenamiento local cuando el componente se monta
   useEffect(() => {
     const storedVehicle = localStorage.getItem('selectedVehicle');
     if (storedVehicle) {
@@ -15,7 +15,7 @@ function RegisterList({ registros, selectedVehicle }) {
   }, []);
 
   useEffect(() => {
-    // actualiza el vehículo seleccionado cuando cambia desde el Navbar
+    // actualiza el vehiculo seleccionado cuando cambia desde el Navbar
     setCurrentSelectedVehicle(selectedVehicle);
   }, [selectedVehicle]);
 
