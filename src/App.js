@@ -6,23 +6,32 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 
 function App() {
-    const [registros, setRegistros] = useState([]);
+  const [registros, setRegistros] = useState([]);
+  const [selectedVehicle, setSelectedVehicle] = useState(null); // Vehículo seleccionado en RegisterList
+  const [selectedSearchVehicle, setSelectedSearchVehicle] = useState(null); // Vehículo seleccionado en la búsqueda del Navbar
 
-    const handleSubmit = (newRegistro) => {
-        setRegistros((prevRegistros) => [...prevRegistros, newRegistro]);
-    };
+  const handleSubmit = (newRegistro) => {
+    setRegistros((prevRegistros) => [...prevRegistros, newRegistro]);
+  };
 
-    return (
-        <Router>
-            <Navbar registros={registros} />
-            <Routes>
-                <Route path="/" element={<Home registros={registros} />} />
-                <Route path="/register" element={<NewRegisterForm onSubmit={handleSubmit} />} />
-                <Route path="/vehicles" element={<RegisterList registros={registros} />} />
-                {/* No hay ruta para "/carregister", asegúrate de que no estás intentando navegar a esta ruta en tu aplicación */}
-            </Routes>
-        </Router>
-    );
+  const handleSearch = (vehiculo) => {
+    setSelectedSearchVehicle(vehiculo);
+  };
+
+  return (
+    <Router>
+      <Navbar registros={registros} selectedVehicle={selectedVehicle} setSelectedVehicle={setSelectedVehicle} />
+
+      <Routes>
+        <Route path="/" element={<Home registros={registros} />} />
+        <Route path="/register" element={<NewRegisterForm onSubmit={handleSubmit} />} />
+        <Route
+          path="/vehicles"
+          element={<RegisterList registros={registros} selectedVehicle={selectedVehicle} />}
+        />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function Navbar({ registros }) {
+function Navbar({ registros, selectedVehicle, setSelectedVehicle }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredRegistros, setFilteredRegistros] = useState([]);
-  const [selectedVehicle, setSelectedVehicle] = useState(null);
   const navigate = useNavigate();
   const searchRef = useRef(null);
+  const [selectedSearchVehicle, setSelectedSearchVehicle] = useState(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,7 +34,8 @@ function Navbar({ registros }) {
   };
 
   const handleVehicleClick = (vehiculo) => {
-    setSelectedVehicle(vehiculo);
+    setSelectedSearchVehicle(vehiculo);
+    setSelectedVehicle(vehiculo); // Actualiza el vehículo seleccionado en RegisterList
     localStorage.setItem('selectedVehicle', JSON.stringify(vehiculo));
     navigate('/vehicles', { replace: true, state: { forcedReload: true } });
   };
@@ -95,6 +96,8 @@ function Navbar({ registros }) {
 
 Navbar.propTypes = {
   registros: PropTypes.array,
+  selectedVehicle: PropTypes.object, // Asegúrate de que el prop selectedVehicle sea un objeto
+  setSelectedVehicle: PropTypes.func, // Asegúrate de que el prop setSelectedVehicle sea una función
 };
 
 export default Navbar;

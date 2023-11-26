@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/RegisterForm.css';
 
-function RegisterList({ registros }) {
-  const [selectedVehicle, setSelectedVehicle] = useState(null);
+function RegisterList({ registros, selectedVehicle }) {
+  const [currentSelectedVehicle, setCurrentSelectedVehicle] = useState(selectedVehicle);
 
   // Cargar el vehículo seleccionado del almacenamiento local cuando el componente se monta
   useEffect(() => {
     const storedVehicle = localStorage.getItem('selectedVehicle');
     if (storedVehicle) {
-      setSelectedVehicle(JSON.parse(storedVehicle));
+      setCurrentSelectedVehicle(JSON.parse(storedVehicle));
       // Opcional: limpiar el almacenamiento local
       localStorage.removeItem('selectedVehicle');
     }
   }, []);
 
+  useEffect(() => {
+    // Actualiza el vehículo seleccionado cuando cambia desde el Navbar
+    setCurrentSelectedVehicle(selectedVehicle);
+  }, [selectedVehicle]);
+
   const handleVehicleClick = (vehiculo) => {
-    setSelectedVehicle(vehiculo);
+    setCurrentSelectedVehicle(vehiculo);
+    localStorage.setItem('selectedVehicle', JSON.stringify(vehiculo));
   };
 
   return (
@@ -25,50 +31,50 @@ function RegisterList({ registros }) {
           <li
             key={vehiculo.servicioNumber}
             onClick={() => handleVehicleClick(vehiculo)}
-            className={selectedVehicle && vehiculo.servicioNumber === selectedVehicle.servicioNumber ? 'selected' : ''}
+            className={currentSelectedVehicle && vehiculo.servicioNumber === currentSelectedVehicle.servicioNumber ? 'selected' : ''}
           >
             {`${vehiculo.marca} ${vehiculo.modelo}`}
           </li>
         ))}
       </ul>
-      {selectedVehicle && (
+      {currentSelectedVehicle && (
         <div className="vehicle-details">
           <h2>Detalles de Vehiculo</h2>
           <div className="detail-row">
             <span>Numero de servicio:</span>
-            <span>{selectedVehicle.servicioNumber}</span>
+            <span>{currentSelectedVehicle.servicioNumber}</span>
           </div>
           <div className="detail-row">
             <span>Marca:</span>
-            <span>{selectedVehicle.marca}</span>
+            <span>{currentSelectedVehicle.marca}</span>
           </div>
           <div className="detail-row">
             <span>Modelo:</span>
-            <span>{selectedVehicle.modelo}</span>
+            <span>{currentSelectedVehicle.modelo}</span>
           </div>
           <div className="detail-row">
             <span>Cliente:</span>
-            <span>{selectedVehicle.cliente}</span>
+            <span>{currentSelectedVehicle.cliente}</span>
           </div>
           <div className="detail-row">
             <span>Patente:</span>
-            <span>{selectedVehicle.patente}</span>
+            <span>{currentSelectedVehicle.patente}</span>
           </div>
           <div className="detail-row">
             <span>Cilindrada:</span>
-            <span>{selectedVehicle.cilindrada}</span>
+            <span>{currentSelectedVehicle.cilindrada}</span>
           </div>
           <div className="detail-row">
             <span>Ultimo Cambio de Aceite:</span>
-            <span>{selectedVehicle.ultimoCambioAceite}</span>
+            <span>{currentSelectedVehicle.ultimoCambioAceite}</span>
           </div>
           <div className="detail-row">
             <span>Kilometraje:</span>
-            <span>{selectedVehicle.kilometraje}</span>
+            <span>{currentSelectedVehicle.kilometraje}</span>
           </div>
           <div className="detail-row">
             <span>Color:</span>
-            <span>{selectedVehicle.color}</span>
+            <span>{currentSelectedVehicle.color}</span>
           </div>
         </div>
       )}
