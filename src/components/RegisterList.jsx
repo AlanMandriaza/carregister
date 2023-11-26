@@ -4,18 +4,18 @@ import '../styles/RegisterForm.css';
 function RegisterList({ registros, selectedVehicle }) {
   const [currentSelectedVehicle, setCurrentSelectedVehicle] = useState(selectedVehicle);
 
-  // Cargar el vehículo seleccionado del almacenamiento local cuando el componente se monta
+  // cargar el vehículo seleccionado del almacenamiento local cuando el componente se monta
   useEffect(() => {
     const storedVehicle = localStorage.getItem('selectedVehicle');
     if (storedVehicle) {
       setCurrentSelectedVehicle(JSON.parse(storedVehicle));
-      // Opcional: limpiar el almacenamiento local
+      
       localStorage.removeItem('selectedVehicle');
     }
   }, []);
 
   useEffect(() => {
-    // Actualiza el vehículo seleccionado cuando cambia desde el Navbar
+    // actualiza el vehículo seleccionado cuando cambia desde el Navbar
     setCurrentSelectedVehicle(selectedVehicle);
   }, [selectedVehicle]);
 
