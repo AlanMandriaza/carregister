@@ -1,53 +1,68 @@
 .register-container {
   display: flex;
   min-height: 100vh;
+  justify-content: space-between; /* Aligns children with space between */
 }
 
 .vehicle-list {
-  flex: 0 0 250px; /* Ancho del sidebar */
-  background-color: #f0f0f0; /* Color de fondo del sidebar */
+  flex: 0 0 250px; /* Width of the left sidebar */
+  background-color: #f0f0f0; /* Background color of the left sidebar */
   padding: 12px 0px 20px 20px;
   list-style: none;
   margin: 0;
+  border-right: 1px solid #ccc; /* Border between the list and the details */
 }
 
 .vehicle-list li {
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-bottom: 1px solid #ccc; /* Línea divisoria */
-  }
-  
-  .vehicle-list li:last-child {
-    border-bottom: none; /* Eliminar la línea del último elemento */
-  }
-  
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-bottom: 1px solid #ccc; /* Divider line */
+}
+
+.vehicle-list li:last-child {
+  border-bottom: none; /* No divider line for the last item */
+}
 
 .vehicle-list li.selected {
-  background-color: #d1d1d1; /* Color más oscuro para el seleccionado */
+  background-color: #d1d1d1; /* Background for selected item */
 }
 
 .vehicle-details {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+  flex-grow: 1; /* Allows this section to take up available space */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 0 20px; /* Spacing between sidebars and details */
 }
 
 .detail-row {
-    line-height: 2;
-    border-bottom: 1px solid #eee;
+  line-height: 2;
+  border-bottom: 1px solid #eee;
 }
 
 .detail-row:last-child {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 .font-weight-bold {
-    font-weight: bold;
+  font-weight: bold;
 }
-.text-center{
-    border-bottom: 1px outset;
+
+.text-center {
+  border-bottom: 1px outset;
 }
+
+/* Styles for the right sidebar */
+.requeriments-sidebar {
+  flex: 0 0 250px; /* Similar width as the left sidebar */
+  background-color: #f0f0f0; /* Same background color as the left sidebar */
+  padding: 12px 20px; /* Padding for the sidebar */
+  list-style: none;
+  margin: 0;
+  border-left: 1px solid #ccc; /* Border to separate it from the details section */
+}
+
+/* Add any specific styling for the elements inside the requeriments-sidebar here */

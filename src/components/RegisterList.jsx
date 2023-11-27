@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Requeriments from './Requeriments';
 import '../styles/RegisterForm.css';
 import '../styles/RegisterList.css';
+
 
 function RegisterList({ registros, selectedVehicle }) {
   const [currentSelectedVehicle, setCurrentSelectedVehicle] = useState(selectedVehicle);
@@ -77,9 +79,18 @@ function RegisterList({ registros, selectedVehicle }) {
             <span className="col-6 font-weight-bold">Color:</span>
             <span className="col-6">{currentSelectedVehicle.color}</span>
           </div>
+          <div className="sidebar-container">
+
+          </div>
         </div>
       )}
-      
+      {currentSelectedVehicle && (
+        <Requeriments
+          selectedVehicle={currentSelectedVehicle}
+          jobs={currentSelectedVehicle.jobs || []}
+        />
+      )}
+
       {registros.length === 0 && (
         <div>
           <h3>Sin registros</h3>

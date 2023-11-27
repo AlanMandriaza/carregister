@@ -15,15 +15,12 @@ function NewRegisterForm({ onSubmit }) {
 
   const [showModal, setShowModal] = useState(false);
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-
-    const servicioNumber = new Date().toISOString().replace(/[:.-]/g, '');
-    const nombreRegistro = `${marca} ${modelo} - ${patente}`;
+    console.log('Función handleRegister se llama');
     const nuevoRegistro = {
-      nombreRegistro,
       marca,
-      modelo,
+      modelo, 
       cliente,
       patente,
       cilindrada,
@@ -31,12 +28,30 @@ function NewRegisterForm({ onSubmit }) {
       ultimoCambioAceite,
       kilometraje,
       color,
-      servicioNumber,
     };
 
-    onSubmit(nuevoRegistro); 
-    setShowModal(true); 
-    resetForm(); 
+    console.log('Contenido del formulario:', nuevoRegistro);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/vehiculos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(nuevoRegistro),
+        
+      });
+      console.log('Respuesta del servidor:', response);
+      if (response.ok) {
+        setShowModal(true);
+        resetForm();
+      } else {
+        // Manejar el caso de error
+        console.error('Error al registrar el vehículo');
+      }
+    } catch (error) {
+      console.error('Error al registrar el vehículo:', error);
+    }
   };
 
   const resetForm = () => {
@@ -53,8 +68,8 @@ function NewRegisterForm({ onSubmit }) {
 
   return (
     <div>
-      
       <form style={{ maxWidth: '400px', margin: '20px auto' }} onSubmit={handleRegister}>
+        
       <h2>Registro de Vehículo</h2>
         <div className="mb-3">
           <label htmlFor="marca" className="form-label">Marca:</label>
@@ -147,6 +162,7 @@ function NewRegisterForm({ onSubmit }) {
           />
         </div>
         <button type="submit" className="btn btn-primary">Registrar Vehículo</button>
+
       </form>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
